@@ -9,9 +9,15 @@ Two branches keep those edits safe:
 
 Never copy Cursor's files onto `main` directly. That erases the edits.
 
+## Remotes
+
+- `origin` is this account's fork, `github.com/Molaison/pstack`. Both branches are pushed there.
+- `source` is `github.com/backnotprop/pstack`, the mirror this account follows for reference. It is read-only here.
+- `upstream` in the branch list is a branch, not a remote. `cursor/plugins` is cloned to `/tmp` per sync and never added as a remote.
+
 ## Steps
 
-1. Copy Cursor's latest `pstack/` folder onto the `upstream` branch:
+1. Copy Cursor's latest `pstack/` folder onto the `upstream` branch, in a temporary worktree rather than this checkout (see [Files that stay local](#files-that-stay-local)):
 
    ```bash
    git clone --depth 1 --filter=blob:none --sparse https://github.com/cursor/plugins.git /tmp/cursor-plugins
