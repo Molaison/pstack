@@ -45,3 +45,10 @@ Never copy Cursor's files onto `main` directly. That erases the edits.
    ```bash
    git push origin main upstream
    ```
+
+## Files that stay local
+
+Every `skills/*/agents/openai.yaml` in this checkout is a Codex-side adaptation (`policy.allow_implicit_invocation: false`), and stays untracked on purpose. Two consequences:
+
+- Do not run `git add -A` with `upstream` checked out here: the snapshot would swallow all 57 of them. Build the snapshot in a temporary worktree instead — `git worktree add /tmp/pstack-upstream -b upstream-new origin/upstream`, do the `rsync` and commit there, then `git branch -f upstream upstream-new`.
+- Stage explicit paths on `main`. A bare `git add -A` commits the same 57 files into the mirror.
