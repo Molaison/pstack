@@ -2,6 +2,8 @@
 
 Swap in the real paths, skills, and done checks. Informal wording works.
 
+`/loop` below is built into Cursor and Claude Code. Without it, wait between checks with a timed shell command, per **Harness** in [`poteto-mode`](../../poteto-mode/SKILL.md).
+
 ## Understand
 
 - `/poteto-mode read <thread>. restate the underlying issue in your own words, in plain english.`
